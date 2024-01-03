@@ -1,6 +1,6 @@
 const std = @import("std");
 const string = []const u8;
-const extras = @import("extras");
+const extras = @import("extras.zig");
 const time = @This();
 
 pub const DateTime = struct {
@@ -474,7 +474,7 @@ fn printLongName(writer: anytype, index: u16, names: []const string) !void {
 }
 
 fn wrap(val: u16, at: u16) u16 {
-    var tmp = val % at;
+    const tmp = val % at;
     return if (tmp == 0) at else tmp;
 }
 
