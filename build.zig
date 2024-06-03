@@ -5,14 +5,14 @@ pub fn build(b: *std.Build) void {
     const optimize = b.standardOptimizeOption(.{});
 
     const time_mod = b.addModule("time", .{
-        .root_source_file = .{ .path = "time.zig" },
+        .root_source_file = b.path("time.zig"),
         .target = target,
         .optimize = optimize,
     });
 
     {
         const tests = b.addTest(.{
-            .root_source_file = .{ .path = "main.zig" },
+            .root_source_file = b.path("main.zig"),
             .target = target,
             .optimize = optimize,
         });
